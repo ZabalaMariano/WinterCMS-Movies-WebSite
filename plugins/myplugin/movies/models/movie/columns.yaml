@@ -1,0 +1,10 @@
+columns:
+    name:
+        label: Nombre
+        type: text
+        searchable: true
+        sortable: true
+    year:
+        label: Año
+        type: number
+        sortable: true

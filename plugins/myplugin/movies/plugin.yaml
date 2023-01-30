@@ -1,0 +1,11 @@
+plugin:
+    name: 'myplugin.movies::lang.plugin.name'
+    description: 'myplugin.movies::lang.plugin.description'
+    author: MyPlugin
+    icon: oc-icon-video-camera
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Movies
+        url: myplugin/movies/movies
+        icon: icon-video-camera

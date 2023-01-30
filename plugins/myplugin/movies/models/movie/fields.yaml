@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: 'Titulo pelicula'
+        span: full
+        placeholder: ''
+        required: 1
+        type: text
+    description:
+        label: Descripción
+        size: ''
+        span: full
+        type: richeditor
+    year:
+        label: Año
+        span: auto
+        type: text
