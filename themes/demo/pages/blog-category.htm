@@ -1,0 +1,11 @@
+title = "Blog Category"
+url = "/blog-category/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog-category-posts"
+==
+{% component 'blogCategories' %}
