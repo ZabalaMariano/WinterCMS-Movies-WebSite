@@ -24,4 +24,23 @@ class Movie extends Model
      */
     public $rules = [
     ];
+
+    /**
+     * Relations
+     */
+    public $attachOne = [
+        'poster' => 'System\Models\File'
+    ];
+
+    public $attachMany = [
+        'movie_gallery' => 'System\Models\File'
+    ];
+
+    public $belongsToMany = [
+        'genres' => [
+            'MyPlugin\Movies\Models\Genre',
+            'table' => 'myplugin_movies_and_genres_relation', //Name of table between Movies and Genres
+            'order' => 'genre_title'
+        ]
+    ];
 }

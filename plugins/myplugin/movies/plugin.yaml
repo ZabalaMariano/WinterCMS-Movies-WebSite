@@ -6,6 +6,11 @@ plugin:
     homepage: ''
 navigation:
     main-menu-item:
-        label: Movies
+        label: Peliculas
         url: myplugin/movies/movies
         icon: icon-video-camera
+        sideMenu:
+            side-menu-item:
+                label: Generos
+                url: myplugin/movies/genres
+                icon: icon-tag

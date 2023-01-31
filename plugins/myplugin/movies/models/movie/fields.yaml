@@ -21,3 +21,31 @@ fields:
             field: name
             type: slug
         type: text
+    genres:
+        label: Generos
+        nameFrom: genre_title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    movie_gallery:
+        label: 'Galeria pelicula'
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    poster:
+        label: 'Poster pelicula'
+        mode: image
+        imageWidth: '10'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

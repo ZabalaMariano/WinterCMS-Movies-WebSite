@@ -1,0 +1,10 @@
+name: Genres
+form: $/myplugin/movies/models/genre/fields.yaml
+modelClass: MyPlugin\Movies\Models\Genre
+defaultRedirect: myplugin/movies/genres
+create:
+    redirect: 'myplugin/movies/genres/update/:id'
+    redirectClose: myplugin/movies/genres
+update:
+    redirect: myplugin/movies/genres
+    redirectClose: myplugin/movies/genres

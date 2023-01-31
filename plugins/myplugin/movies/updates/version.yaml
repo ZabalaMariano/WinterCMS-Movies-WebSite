@@ -6,3 +6,9 @@
 1.0.3:
     - 'Updated table myplugin_movies_'
     - builder_table_update_myplugin_movies_.php
+1.0.4:
+    - 'Created table myplugin_movies_genres'
+    - builder_table_create_myplugin_movies_genres.php
+1.0.5:
+    - 'Created table myplugin_movies_and_genres_relation'
+    - builder_table_create_myplugin_movies_and_genres_relation.php

@@ -16,11 +16,59 @@ notFoundMessage = "Pelicula no encontrada"
 
 {% if record %}
     {# {{ attribute(record, displayColumn) }} #}
-    <span>
+
+    <div>
         <h3>{{ record.name }}</h3>
-        {{ record.year }}
-    </span>
-    {{ record.description|raw }}
+        <p>
+            {{ record.year }}
+
+            {% if record.genres|length == 1 %}
+                <b> | Género:</b>
+                <a href="/genres/{{ record.genres[0].slug }}">{{ record.genres[0].genre_title }}</a>.
+            {% else %}
+                {% if record.genres|length > 1 %}
+                <b> | Géneros:</b>
+                    {% for genre in record.genres %}
+                        <a href="/genres/{{ genre.slug }}">
+                            {{ genre.genre_title }}{% if not loop.last %}
+                        </a>
+                        , {% else %}.{% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        </p>
+    </div>
+
+    <div class="container-poster">
+        {# <img src="{{ record.poster.path }}" /> #}
+        <img class="poster" src="{{ record.poster.thumb(200,auto) }}" />
+    </div>
+
+    <div>
+        {{ record.description|raw }}
+    </div>
+
+
+    <h3>Galería</h3>
+
+    {# Modal for Gallery #}
+    <ul class="gallery clearfix">
+        {% for image in record.movie_gallery %}
+            <li style="cursor: pointer;">
+                <img src="{{ image.thumb(80,80, {'mode':'crop'}) }}" data-toggle="modal" data-target="{{ '#movieModalCenter' ~ image.id }}">
+            </li>  
+
+            <!-- Modal -->
+            <div class="modal fade" id="{{ 'movieModalCenter' ~ image.id }}" tabindex="-1" role="dialog" aria-labelledby="movieModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="movie-modal-container">
+                        <img src="{{ image.path }}" />
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+
 {% else %}
     {{ notFoundMessage }}
 {% endif %}

@@ -206,6 +206,25 @@ a {
   color: #e81c4f;
 }
 
+/*
+|--------------------------------------------------------------------------
+| Gallery
+|--------------------------------------------------------------------------
+*/
+.gallery {
+  padding: 20px 15px;
+  background: #efefef;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.gallery li {
+  float: left;
+  margin: 5px;
+}
+.gallery img, .gallery a {
+  display: block;
+}
+
 /* =======================================================================
 ## ++ Cleafix
 ========================================================================== */
@@ -295,4 +314,24 @@ a {
 .pagination a.active {
   color: #fff !important;
   background-color: #f44336 !important;
+}
+
+.container-poster {
+  justify-content: center;
+  display: flex;
+}
+
+.poster {
+  margin-top: 2%;
+  padding: 1%;
+  background: #efefef;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.movie-modal-container {
+  padding: 1%;
+  background: #efefef;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
