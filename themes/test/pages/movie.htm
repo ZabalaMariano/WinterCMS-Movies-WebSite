@@ -1,5 +1,5 @@
 title = "Movie"
-url = "/movies/:slug"
+url = "/movie/:slug"
 layout = "default"
 is_hidden = 0
 
@@ -8,7 +8,7 @@ modelClass = "MyPlugin\Movies\Models\Movie"
 identifierValue = "{{ :slug }}"
 modelKeyColumn = "slug"
 displayColumn = "name"
-notFoundMessage = "Record not found"
+notFoundMessage = "Pelicula no encontrada"
 ==
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}

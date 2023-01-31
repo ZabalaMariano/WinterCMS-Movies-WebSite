@@ -1,5 +1,5 @@
 title = "Movies"
-url = "/movies"
+url = "/movies/:page?"
 layout = "default"
 is_hidden = 0
 
@@ -8,10 +8,11 @@ modelClass = "MyPlugin\Movies\Models\Movie"
 scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "name"
-noRecordsMessage = "No records found"
+noRecordsMessage = "No hay peliculas"
 detailsPage = "movie"
 detailsKeyColumn = "slug"
 detailsUrlParameter = "slug"
+recordsPerPage = 2
 pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
@@ -50,19 +51,18 @@ pageNumber = "{{ :page }}"
 </ul>
 
 {% if records.lastPage > 1 %}
-    <ul class="pagination">
+    <div class="pagination">
         {% if records.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&laquo;</a>
         {% endif %}
 
         {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
+            <a class="{{ records.currentPage == page ? 'active' : null }}" 
+            href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
         {% endfor %}
 
         {% if records.lastPage > records.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+            <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">&raquo;</a>
         {% endif %}
-    </ul>
+    </div>
 {% endif %}
