@@ -3,7 +3,12 @@
 {% set notFoundMessage = __SELF__.notFoundMessage %}
 
 {% if record %}
-    {{ attribute(record, displayColumn) }}
+    {# {{ attribute(record, displayColumn) }} #}
+    <span>
+        <h3>{{ record.name }}</h3>
+        {{ record.year }}
+    </span>
+    {{ record.description|raw }}
 {% else %}
     {{ notFoundMessage }}
 {% endif %}

@@ -1,0 +1,26 @@
+title = "Movie"
+url = "/movies/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "MyPlugin\Movies\Models\Movie"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    {# {{ attribute(record, displayColumn) }} #}
+    <span>
+        <h3>{{ record.name }}</h3>
+        {{ record.year }}
+    </span>
+    {{ record.description|raw }}
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}
