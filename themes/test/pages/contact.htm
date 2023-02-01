@@ -1,0 +1,65 @@
+title = "Contact"
+url = "/contact"
+layout = "default"
+is_hidden = 0
+
+[simpleContact]
+nameTitle = "Nombre Completo"
+emailTitle = "Email"
+phoneTitle = "Telefono"
+subjectTitle = "Asunto"
+messageTitle = "Mensaje"
+buttonText = "Enviar"
+displayPhone = 0
+==
+{{ simpleContact.settings.text_top_form|raw}}
+
+<div class="container mt-4">
+    <form id="simpleContactForm" data-request="{{ simpleContact }}::onFormSubmit">
+    
+        <div id="simple_contact_flash_message"></div>
+    
+    
+        <div class="form-group">
+            <label for="name">{{simpleContact.properties.nameLabel}}</label>
+            <input type="text" id="name" name="name" class="form-control" required >
+        </div>
+    
+        <div class="form-group">
+            <label for="email">{{simpleContact.properties.emailLabel}}</label>
+            <input type="email" id="email" name="email" class="form-control" required >
+        </div>
+    
+        {% if(simpleContact.properties.phoneEnabled) %}
+            <div class="form-group">
+                <label for="phone">{{simpleContact.properties.phoneLabel}}</label>
+                <input type="text" id="phone" name="phone" class="form-control" required>
+            </div>
+        {% endif %}
+    
+        <div class="form-group">
+            <label for="subject">{{simpleContact.properties.subjectLabel}}</label>
+            <input type="text" id="subject" name="subject" class="form-control" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="message">{{simpleContact.properties.messageLabel}}</label>
+            <textarea id="message" name="message" class="form-control" required></textarea>
+        </div>
+    
+        <!-- Injecting reCaptcha if enabled -->
+        {% if(simpleContact.settings.recaptcha_enabled) %}
+            <div class="form-group">
+                <label for="message"></label>
+                <div class="g-recaptcha" data-sitekey="{{simpleContact.settings.recaptcha_site_key}}"></div>
+            </div>
+        {% endif %}
+        <!-- End reCaptcha -->
+    
+        <button id="simpleContactSubmitButton"
+                type="submit" class="btn btn-primary">
+            {{simpleContact.properties.buttonText}}
+        </button>
+    
+    </form>
+</div>
