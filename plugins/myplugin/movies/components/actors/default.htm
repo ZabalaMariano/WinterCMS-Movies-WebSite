@@ -1,0 +1,11 @@
+{% set actors = __SELF__.actors %}
+
+<ul class="record-list">
+    {% for actor in actors %}
+        <li>
+            {{ actor.name }}
+        </li>
+    {% else %}
+        <li class="no-data">No hay actores</li>
+    {% endfor %}
+</ul>

@@ -30,7 +30,7 @@ fields:
     actors:
         label: 'Lista de actores'
         mode: relation
-        separator: space
+        separator: comma
         customTags: true
         nameFrom: name
         useKey: false
