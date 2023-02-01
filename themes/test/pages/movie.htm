@@ -48,6 +48,33 @@ notFoundMessage = "Pelicula no encontrada"
         {{ record.description|raw }}
     </div>
 
+    <h3>Actores</h3>
+
+    {% if record.actors|length == 1 %}
+        <p>
+            <b>Actor:</b>
+            {{ record.actors[0].name }}.
+        </p>
+    {% else %}
+        {% if record.actors|length > 1 %}
+            <p>
+                <b>Actores:</b>
+                {% for actor in record.actors %}
+                    {{ actor.name }}{% if not loop.last %}, {% else %}.{% endif %}
+                {% endfor %}
+            </p>
+        {% endif %}
+    {% endif %}
+
+    <h3>Premios</h3>
+
+    {% if record.awards %}
+        {% for award in record.awards %}
+            <p>{{ award.award }}: {{ award.award_category }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No recibió premios.</p>
+    {% endif %}
 
     <h3>Galería</h3>
 

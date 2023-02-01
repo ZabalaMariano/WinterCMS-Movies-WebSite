@@ -10,7 +10,15 @@ navigation:
         url: myplugin/movies/movies
         icon: icon-video-camera
         sideMenu:
+            side-menu-item3:
+                label: Peliculas
+                url: myplugin/movies/movies
+                icon: icon-video-camera
             side-menu-item:
                 label: Generos
                 url: myplugin/movies/genres
                 icon: icon-tag
+            side-menu-item2:
+                label: Actores
+                url: myplugin/movies/actors
+                icon: icon-users

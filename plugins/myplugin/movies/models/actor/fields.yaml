@@ -1,0 +1,11 @@
+fields:
+    name:
+        label: 'Nombre completo'
+        span: left
+        required: 1
+        type: text
+    dob:
+        label: 'Fecha de nacimiento'
+        mode: date
+        span: auto
+        type: datepicker

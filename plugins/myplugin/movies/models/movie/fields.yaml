@@ -27,6 +27,16 @@ fields:
         descriptionFrom: description
         span: auto
         type: relation
+    actors:
+        label: 'Lista de actores'
+        mode: relation
+        separator: space
+        customTags: true
+        nameFrom: name
+        useKey: false
+        span: auto
+        type: taglist
+        commentAbove: 'actores de la película'
     movie_gallery:
         label: 'Galeria pelicula'
         mode: image
@@ -36,8 +46,25 @@ fields:
         thumbOptions:
             mode: crop
             extension: auto
-        span: full
+        span: auto
         type: fileupload
+    awards:
+        label: Premios
+        prompt: 'Add new item'
+        style: default
+        span: auto
+        type: repeater
+        form:
+            fields:
+                award:
+                    label: Premios
+                    span: auto
+                    type: text
+                award_category:
+                    label: Categoría
+                    span: auto
+                    required: 1
+                    type: text
     poster:
         label: 'Poster pelicula'
         mode: image

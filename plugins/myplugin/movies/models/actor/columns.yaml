@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: Nombre
+        type: text
+        searchable: true
+        sortable: true
+    dob:
+        label: 'Fecha de nacimiento'
+        type: date
+        searchable: true
+        sortable: true

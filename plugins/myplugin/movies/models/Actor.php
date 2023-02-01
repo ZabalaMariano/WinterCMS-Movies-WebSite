@@ -5,7 +5,7 @@ use Model;
 /**
  * Model
  */
-class Genre extends Model
+class Actor extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
     
@@ -19,7 +19,7 @@ class Genre extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'myplugin_movies_genres';
+    public $table = 'myplugin_movies_actors';
 
     /**
      * @var array Validation rules
@@ -31,10 +31,10 @@ class Genre extends Model
      * Relations
      */
 
-    public $belongsToMany = [
+     public $belongsToMany = [
         'movies' => [
             'MyPlugin\Movies\Models\Movie',
-            'table' => 'myplugin_movies_and_genres_relation', //Name of table between Movies and Genres
+            'table' => 'myplugin_movies_and_genres_relation', //Name of table between Movies and Actors
             'order' => 'name'
         ]
     ];

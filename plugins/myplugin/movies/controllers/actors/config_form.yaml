@@ -1,0 +1,10 @@
+name: Actors
+form: $/myplugin/movies/models/actor/fields.yaml
+modelClass: MyPlugin\Movies\Models\Actor
+defaultRedirect: myplugin/movies/actors
+create:
+    redirect: 'myplugin/movies/actors/update/:id'
+    redirectClose: myplugin/movies/actors
+update:
+    redirect: myplugin/movies/actors
+    redirectClose: myplugin/movies/actors

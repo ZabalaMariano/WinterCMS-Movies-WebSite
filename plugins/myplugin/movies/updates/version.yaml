@@ -12,3 +12,18 @@
 1.0.5:
     - 'Created table myplugin_movies_and_genres_relation'
     - builder_table_create_myplugin_movies_and_genres_relation.php
+1.0.6:
+    - 'Updated table myplugin_movies_'
+    - builder_table_update_myplugin_movies__2.php
+1.0.7:
+    - 'Updated table myplugin_movies_'
+    - builder_table_update_myplugin_movies__3.php
+1.0.8:
+    - 'Created table myplugin_movies_actors'
+    - builder_table_create_myplugin_movies_actors.php
+1.0.9:
+    - 'Created table myplugin_movies_and_actors_relation'
+    - builder_table_create_myplugin_movies_and_actors_relation.php
+1.0.10:
+    - 'Updated table myplugin_movies_actors'
+    - builder_table_update_myplugin_movies_actors.php
