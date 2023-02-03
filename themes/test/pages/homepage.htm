@@ -2,7 +2,24 @@ title = "Homepage"
 url = "/"
 layout = "default"
 is_hidden = 0
+
+[siteSearchInclude]
 ==
+<form action="{{ 'search' | page }}" method="get">
+    <h3 class="mb-2">Buscar película</h3>
+    <div class="form-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <input class="form-control" name="q" type="text" placeholder="Buscar..." autocomplete="off">
+                </div>
+                <div class="col-2">
+                  <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 <h2>Inicio</h2>
 
