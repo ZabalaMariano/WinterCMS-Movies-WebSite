@@ -12,7 +12,7 @@ noRecordsMessage = "No hay peliculas"
 detailsPage = "movie"
 detailsKeyColumn = "slug"
 detailsUrlParameter = "slug"
-recordsPerPage = 2
+recordsPerPage = 10
 pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
@@ -56,10 +56,23 @@ pageNumber = "{{ :page }}"
             <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&laquo;</a>
         {% endif %}
 
-        {% for page in 1..records.lastPage %}
+        {# {% for page in 1..records.lastPage %}
+            <a class="{{ records.currentPage == page ? 'active' : null }}" 
+            href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+        {% endfor %} #}
+
+        {% set start = max(1, records.currentPage - 2) %}
+        {% set end = min(records.lastPage, records.currentPage + 2) %}
+        {% if start > 1 %}
+            <a href="{{ this.page.baseFileName|page({ (pageParam): 1 }) }}">{{ 1 }}</a>
+        {% endif %}
+        {% for page in start..end %}
             <a class="{{ records.currentPage == page ? 'active' : null }}" 
             href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
         {% endfor %}
+        {% if end < records.lastPage %}
+            <a href="{{ this.page.baseFileName|page({ (pageParam): records.lastPage }) }}">{{ records.lastPage }}</a>
+        {% endif %}
 
         {% if records.lastPage > records.currentPage %}
             <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">&raquo;</a>

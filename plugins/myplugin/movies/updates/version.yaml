@@ -1,32 +1,35 @@
 1.0.1:
-    - 'Initialize plugin.'
+    - "Initialize plugin."
 1.0.2:
-    - 'Created table myplugin_movies_'
+    - "Created table myplugin_movies_"
     - builder_table_create_myplugin_movies_.php
 1.0.3:
-    - 'Updated table myplugin_movies_'
+    - "Updated table myplugin_movies_"
     - builder_table_update_myplugin_movies_.php
 1.0.4:
-    - 'Created table myplugin_movies_genres'
+    - "Created table myplugin_movies_genres"
     - builder_table_create_myplugin_movies_genres.php
 1.0.5:
-    - 'Created table myplugin_movies_and_genres_relation'
+    - "Created table myplugin_movies_and_genres_relation"
     - builder_table_create_myplugin_movies_and_genres_relation.php
 1.0.6:
-    - 'Updated table myplugin_movies_'
+    - "Updated table myplugin_movies_"
     - builder_table_update_myplugin_movies__2.php
 1.0.7:
-    - 'Updated table myplugin_movies_'
+    - "Updated table myplugin_movies_"
     - builder_table_update_myplugin_movies__3.php
 1.0.8:
-    - 'Created table myplugin_movies_actors'
+    - "Created table myplugin_movies_actors"
     - builder_table_create_myplugin_movies_actors.php
 1.0.9:
-    - 'Created table myplugin_movies_and_actors_relation'
+    - "Created table myplugin_movies_and_actors_relation"
     - builder_table_create_myplugin_movies_and_actors_relation.php
 1.0.10:
-    - 'Updated table myplugin_movies_actors'
+    - "Updated table myplugin_movies_actors"
     - builder_table_update_myplugin_movies_actors.php
 1.0.11:
-    - 'Updated table myplugin_movies_actors'
+    - "Updated table myplugin_movies_actors"
     - builder_table_update_myplugin_movies_actors_2.php
+1.0.12:
+    - "Seed Movies"
+    - seed.php
