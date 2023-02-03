@@ -27,3 +27,6 @@
 1.0.10:
     - 'Updated table myplugin_movies_actors'
     - builder_table_update_myplugin_movies_actors.php
+1.0.11:
+    - 'Updated table myplugin_movies_actors'
+    - builder_table_update_myplugin_movies_actors_2.php

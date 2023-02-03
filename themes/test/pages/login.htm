@@ -1,0 +1,27 @@
+title = "Login"
+url = "/login"
+layout = "default"
+is_hidden = 0
+
+[account]
+redirect = "homepage"
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+
+[session]
+security = "guest"
+redirect = "profile"
+==
+{% if not user %}
+
+    <div class="row">
+
+        <div class="col-md-10">
+            <h3>Iniciar sesión</h3>
+            {% partial account ~ '::signin' %}
+        </div>
+
+    </div>
+
+{% endif %}

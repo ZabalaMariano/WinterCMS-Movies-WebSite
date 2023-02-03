@@ -1,9 +1,22 @@
 title = "Actors"
 url = "/actors/:page?"
+layout = "default"
 is_hidden = 0
 
 [actors]
 results = 0
-sortOrder = "name desc"
+sortOrder = "name asc"
 ==
-{% component 'actors' %}
+<div class="container mt-4">
+    <h3>Actores</h3>
+    
+    {% if user %}
+        <div class="d-flex justify-content-end">
+            <a href="{{ 'add-actor'|page }}"><button type="submit" class="btn btn-primary">Añadir actor</button></a>
+        </div>
+    {% endif %}
+    
+    <div class="container mt-4">
+        {% component 'actors' %}
+    </div>
+</div>

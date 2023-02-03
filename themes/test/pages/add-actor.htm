@@ -1,0 +1,18 @@
+title = "Add-actor"
+url = "/add-actor"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[actorform]
+==
+<div class="container mt-4">
+    <h3>Añadir actor</h3>
+    
+    <div class="container mt-4">
+        {% component 'actorform' %}
+    </div>
+</div>

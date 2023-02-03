@@ -1,0 +1,6 @@
+plugin:
+    name: 'myplugin.profile::lang.plugin.name'
+    description: 'Extends Winter.User plugin'
+    author: MyPlugin
+    icon: oc-icon-user
+    homepage: ''

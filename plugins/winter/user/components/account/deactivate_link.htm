@@ -1,0 +1,30 @@
+<div class="mt-4">
+    <a
+        href="javascript:;"
+        onclick="$('#accountDeactivateForm').toggle()">
+        Desactivar cuenta
+    </a>
+</div>
+
+<div id="accountDeactivateForm" style="display: none">
+    {{ form_ajax('onDeactivate') }}
+        <hr />
+        <h3>¿Deseas desactivar tu cuenta?</h3>
+        <p>
+            Su cuenta será desactivada y sus datos removidos del sitio.
+            Puede volver a activar su cuenta tan solo iniciando sesión nuevamente.
+        </p>
+        <div class="form-group">
+            <label for="accountDeletePassword">Para continuar, ingrese su contraseña:</label>
+            <input name="password" type="password" class="form-control" id="accountDeletePassword" />
+        </div>
+        <button type="submit" class="btn btn-danger">
+            Confirmar desactivación de cuenta
+        </button>
+        <a
+            href="javascript:;"
+            onclick="$('#accountDeactivateForm').toggle()">
+            Cambie de parecer
+        </a>
+    {{ form_close() }}
+</div>

@@ -150,7 +150,10 @@ class SimpleContact extends ComponentBase
         if ($validator->fails()) {
 
             $messages = $validator->messages();
-            Flash::error($messages->first());
+
+            foreach($messages->all() as $input_error){
+                Flash::error($input_error);
+            }
 
             throw new AjaxException(['#simple_contact_flash_message' => $this->renderPartial('@flashMessage.htm',[
                 'errors' => $messages->all()
@@ -226,10 +229,16 @@ class SimpleContact extends ComponentBase
             'message_body' => post('message')
         ];
 
-        Mail::send('zainab.simplecontact::mail.notification', $vars, function($message) use ($vars) {
-             $message->to(env('MAIL_TO_ADDRESS'));
-             $message->replyTo($vars['email'], $vars['name']);
-             $message->subject($vars['subject']);
+        // Mail::send('zainab.simplecontact::mail.notification', $vars, function($message) use ($vars) {
+        //      $message->to(env('MAIL_TO_ADDRESS'));
+        //      $message->replyTo($vars['email'], $vars['name']);
+        //      $message->subject($vars['subject']);
+        // });
+
+        Mail::queue('zainab.simplecontact::mail.notification', $vars, function($message) use ($vars) {
+            $message->to(env('MAIL_TO_ADDRESS'));
+            $message->replyTo($vars['email'], $vars['name']);
+            $message->subject($vars['subject']);
         });
     }
 

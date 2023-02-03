@@ -1,0 +1,48 @@
+title = "Actor"
+url = "/actor/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "MyPlugin\Movies\Models\Actor"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Actor no encontrado"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <h2>{{ attribute(record, displayColumn) }}</h2>
+    
+    <!-- <h4>Películas A-Z</h4> -->
+    <ul>
+        {% for movie in record.movies %}
+            <li>
+                <a href="/movie/{{ movie.slug }}">{{ movie.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- <h4>Películas Z-A</h4>
+    <ul>
+        {% for movie in record.movies_desc %}
+            <li>
+                <a href="/movie/{{ movie.slug }}">{{ movie.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h4>Películas de este año</h4>
+    <ul>
+        {% for movie in record.movies_this_year %}
+            <li>
+                <a href="/movie/{{ movie.slug }}">{{ movie.name }}</a>
+            </li>
+        {% endfor %}
+    </ul> -->
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

@@ -1,0 +1,31 @@
+<form data-request="onSubmit" data-request-files data-request-flash>
+{# <form data-request="onSave"> #}
+{# <form method="POST" action="{{ url('add-actor') }}" accept-charset="UTF8" enctype="multipart/form-data"> #}
+    <input type="hidden" name="_handler" value="onSave">
+    {# CSRF #}
+    {{ form_token() }}
+    {{ form_sessionKey() }}
+
+    <div class="form-group">
+        <label>Nombre completo</label>
+        <input class="form-control" type="text" name="name">
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de nacimiento</label>
+        <input class="form-control" type="date" name="dob">
+    </div>
+
+    <div class="form-group">
+        <label>Foto del actor</label>
+        <input class="form-control" type="file" name="actorimage" accept="image/*" data-request="onImageUpload" data-request-files data-request-flash>
+
+        <div id="imageResult"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Actor</button>
+
+    {# {% flash success %}
+        <p>{{ message }}</p>
+    {% endflash %} #}
+</form>

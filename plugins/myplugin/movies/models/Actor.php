@@ -31,11 +31,28 @@ class Actor extends Model
      * Relations
      */
 
-     public $belongsToMany = [
+    public $belongsToMany = [
+        // Actor is related to many movies
         'movies' => [
             'MyPlugin\Movies\Models\Movie',
-            'table' => 'myplugin_movies_and_genres_relation', //Name of table between Movies and Actors
+            'table' => 'myplugin_movies_and_actors_relation', //Name of table between Movies and Actors
             'order' => 'name'
-        ]
+        ],
+        'movies_desc' => [
+            'MyPlugin\Movies\Models\Movie',
+            'table' => 'myplugin_movies_and_actors_relation', //Name of table between Movies and Actors
+            'order' => 'name desc'
+        ],
+        'movies_this_year' => [
+            'MyPlugin\Movies\Models\Movie',
+            'table' => 'myplugin_movies_and_actors_relation', //Name of table between Movies and Actors
+            'order' => 'name',
+            'conditions' => 'year = YEAR(CURDATE())'
+        ],        
+    ];
+
+    // Actor has one Profile-Picture
+    public $attachOne = [
+        'actorimage' => 'System\Models\File'
     ];
 }

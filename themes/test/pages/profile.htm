@@ -1,0 +1,35 @@
+title = "Profile"
+url = "/profile"
+layout = "default"
+is_hidden = 0
+
+[account]
+redirect = 0
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+
+[session]
+security = "user"
+redirect = "login"
+==
+{% if user %}
+
+    <div class="row">
+
+        <div class="col-md-10">
+
+            {% partial account ~ '::activation_check' %}
+            
+            <h3>Mi perfil</h3>
+        
+            {# {% partial account ~ '::update' %} #}
+            {% partial 'update_user' %}
+        
+            {% partial account ~ '::deactivate_link' %}
+            
+        </div>
+            
+    </div>
+
+{% endif %}

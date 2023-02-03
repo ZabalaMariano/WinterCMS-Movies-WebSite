@@ -1,0 +1,9 @@
+{% if not user.is_activated %}
+
+    <h3>Su dirección email no fue verificada aún.</h3>
+    <p>
+        Debe verificar su cuenta o puede ser eliminada. Por favor, ingrese a su email y verifique su cuenta por medio del correo enviado por nosotros.
+        Si no encuentra un correo enviado por nosotros, <a href="javascript:;" data-request="onSendActivationEmail">enviar correo de verificación de nuevo</a>.
+    </p>
+
+{% endif %}

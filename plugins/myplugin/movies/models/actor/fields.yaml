@@ -9,3 +9,21 @@ fields:
         mode: date
         span: auto
         type: datepicker
+    slug:
+        label: Slug
+        span: left
+        preset:
+            field: name
+            type: slug
+        type: text
+    actorimage:
+        label: 'Foto del actor'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

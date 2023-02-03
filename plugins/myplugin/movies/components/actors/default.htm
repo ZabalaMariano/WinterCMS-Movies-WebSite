@@ -3,7 +3,9 @@
 <ul class="record-list">
     {% for actor in actors %}
         <li>
-            {{ actor.name }}
+            <a href="/actor/{{ actor.slug }}">
+                {{ actor.name }}
+            </a>
         </li>
     {% else %}
         <li class="no-data">No hay actores</li>
