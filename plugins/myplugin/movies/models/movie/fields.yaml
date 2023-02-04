@@ -68,7 +68,7 @@ fields:
     poster:
         label: 'Poster pelicula'
         mode: image
-        imageWidth: '10'
+        imageWidth: '100'
         imageHeight: '100'
         useCaption: true
         thumbOptions:
