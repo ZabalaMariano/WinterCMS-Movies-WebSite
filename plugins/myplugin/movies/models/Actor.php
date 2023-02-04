@@ -9,6 +9,8 @@ class Actor extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
     
+    protected $fillable = ['name', 'dob', 'slug'];
+
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
