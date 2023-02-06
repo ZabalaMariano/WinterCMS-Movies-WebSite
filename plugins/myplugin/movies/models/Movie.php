@@ -60,6 +60,13 @@ class Movie extends Model
         ]
     ];
 
+    public static $allowedSortingOptions = array(
+        'name desc' => 'Nombre descendiente',
+        'name asc' => 'Nombre ascendiente',
+        'year desc' => 'Año descendiente',
+        'year asc' => 'Año ascendiente',
+    );
+
     public function scopeListFrontEnd($query, $options = []){
 
         extract(array_merge([
@@ -69,6 +76,10 @@ class Movie extends Model
             'genres' => null,
             'year' => ''
         ], $options));
+
+        if($year){
+            $query->where('year', '=', $year);
+        }
 
         if($genres !== null) {
 
@@ -84,8 +95,15 @@ class Movie extends Model
 
         }
 
-        if($year){
-            $query->where('year', '=', $year);
+        if(in_array($sort, array_keys(self::$allowedSortingOptions))){
+            $parts = explode(' ', $sort);
+            list($sortField, $sortDirection) = $parts;
+            $query->orderBy($sortField, $sortDirection);
+        }
+
+        $lastPage = $query->paginate($perPage, $page)->lastpage();
+        if($lastPage < $page){
+            $page = 1;
         }
 
         return $query->paginate($perPage, $page);

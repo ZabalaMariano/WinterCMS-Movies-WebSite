@@ -1,0 +1,10 @@
+<label>Página</label>
+<select class="form-control" name="Filter[page]">
+    {% for i in 1..pages %}
+        {% if page == i %}
+            <option selected value="{{i}}">{{ i }}</option>
+        {% else %}
+            <option value="{{i}}">{{ i }}</option>
+        {% endif %}
+    {% endfor %}
+</select>

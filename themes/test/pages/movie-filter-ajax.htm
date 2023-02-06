@@ -8,18 +8,31 @@ is_hidden = 0
     use MyPlugin\Movies\Models\Movie;
     use MyPlugin\Movies\Models\Genre;
 
-    function onStart() { $this->prepareVars(); }
-    
-    function onFilterMovies() { $this->prepareVars(); }
+    function onStart() { 
+        $this->prepareVars();
+        $this->prepareYears();
+        $this->prepareGenres();
+    }
+
+    function onFilterMovies() { 
+        $this->prepareVars(); 
+    }
 
     function prepareVars() {
         $options = post('Filter', []);
-
         $this['movies'] = Movie::listFrontEnd($options);
-        $this['genres'] = Genre::all();
+        $this['sortOptions'] = Movie::$allowedSortingOptions;
+        $this['pages'] = $this['movies']->lastpage();
+        $this['page'] = $this['movies']->currentpage();
+    }
 
+    function prepareYears() {
         $years = Movie::select('year')->groupBy('year')->orderBy('year')->pluck('year');
         $this['years'] = $years;
+    }
+
+    function prepareGenres() {
+        $this['genres'] = Genre::all();
     }
 
 ?>
@@ -28,7 +41,7 @@ is_hidden = 0
     
 <div class="row">
     <div class="col-4">
-        {{ form_ajax('onFilterMovies', { update: { 'movies/movies': '#partialMovies' } }) }}
+        {{ form_ajax('onFilterMovies', { update: { 'movies/movies': '#partialMovies', 'movies/paginate': '#partialPaginate' } }) }}
             <div id="MoviesFilter" class="movies-filter form">
                     
                 <div class="form-group">
@@ -44,11 +57,26 @@ is_hidden = 0
                 <div class="form-group">
                     <label>Year</label>
                     <select class="form-control" name="Filter[year]">
-                        <option value="">Select Year</option>
-                        {% for year in years|sort %}
+                        <option value="">Elegir año</option>
+                        {# {% for year in years|sort %} #}
+                        {% for year in years %}
                             <option value="{{year}}">{{ year }}</option>
                         {% endfor %}
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ordenar resultados</label>
+                    <select class="form-control" name="Filter[sort]">
+                        <option value="">Ordenar por</option>
+                        {% for code,sortOption in sortOptions %}
+                            <option value="{{code}}">{{ sortOption }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group" id="partialPaginate">
+                    {% partial 'movies/paginate' %}
                 </div>
 
             </div>
