@@ -13,6 +13,7 @@ class Movie extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['name', 'slug', 'description', 'year', 'created_at', 'updated_at'];
 
     /**
      * @var string The database table used by the model.
@@ -58,4 +59,35 @@ class Movie extends Model
             'order' => 'name'
         ]
     ];
+
+    public function scopeListFrontEnd($query, $options = []){
+
+        extract(array_merge([
+            'page' => 1,
+            'perPage' => 10,
+            'sort' => 'created_at desc',
+            'genres' => null,
+            'year' => ''
+        ], $options));
+
+        if($genres !== null) {
+
+            if(!is_array($genres)){
+                $genres = [$genres];
+            }
+
+            foreach ($genres as $genre){
+                $query->whereHas('genres', function($q) use ($genre){
+                    $q->where('id', '=', $genre);
+                });
+            }
+
+        }
+
+        if($year){
+            $query->where('year', '=', $year);
+        }
+
+        return $query->paginate($perPage, $page);
+    }
 }

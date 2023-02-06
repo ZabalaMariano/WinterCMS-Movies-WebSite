@@ -8,7 +8,8 @@ class Plugin extends PluginBase
     {
         return [
             'MyPlugin\Movies\Components\Actors' => 'actors',
-            'MyPlugin\Movies\Components\ActorForm' => 'actorform'
+            'MyPlugin\Movies\Components\ActorForm' => 'actorform',
+            'MyPlugin\Movies\Components\FilterMovies' => 'filtermovies'
         ];
     }
 

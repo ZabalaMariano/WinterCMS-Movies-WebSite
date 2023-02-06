@@ -1,0 +1,36 @@
+{% if movies|length %}
+
+    {% for movie in movies %}
+        <div class="card mt-2">
+            <div class="card-header">
+                <span class="font-weight-bold">{{movie.name}}</span>
+                <div>{{ movie.year }}</div>
+            </div>
+
+            <div class="card-body">
+                <div>{{ movie.description }}</div>
+            </div>
+
+            <div class="card-footer">
+                <ul class="list-inline my-0">
+                    {% for genre in movie.genres %}
+                        {% if not loop.first %}&bull;{% endif %}
+                        <li class="list-inline-item">
+                            <span class="small">{{ genre.genre_title }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    {% endfor %}
+
+{% else %}
+
+    <div class="font-weight-light text-center">
+        <p>
+            Ninguna película coindice con los filtros aplicados.
+        </p>
+    </div>
+
+{% endif %}
