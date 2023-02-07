@@ -5,18 +5,18 @@
 
 <form method="GET" action="{{ url('filter-movies') }}">
     <div>
-        <label>Year</label>
+        <label>Año</label>
         <select name="year">
-            <option value="">Any</option>
+            <option value="">Cualquiera</option>
             {# {% for year in years|sort %} #}
             {% for year in years %}
                 <option value="{{year}}">{{year}}</option>
             {% endfor %}
         </select>
 
-        <label>Genre</label>
+        <label>Género</label>
         <select name="genre">
-            <option value="">Any</option>
+            <option value="">Cualquiera</option>
             {% for genre in genres %}
                 <option value="{{genre.slug}}">{{ genre.genre_title }}</option>                
             {% endfor %}
@@ -32,7 +32,8 @@
         <li>
             {# Use spaceless tag to remove spaces inside the A tag. #}
             <h3>
-                <a href="/movies/movie/{{movie.slug}}">
+                {# <a href="/movies/movie/{{movie.slug}}"> #}
+                <a href="{{ 'movie'|page({ slug: movie.slug }) }}">
                     {{ movie.name }} - {{movie.year}}
                 </a>
             </h3>
@@ -44,6 +45,6 @@
             {% endfor %}
         </li>
     {% else %}
-        <li class="no-data">No Movies found</li>
+        <li class="no-data">No se encontró ninguna película</li>
     {% endfor %}
 </ul>

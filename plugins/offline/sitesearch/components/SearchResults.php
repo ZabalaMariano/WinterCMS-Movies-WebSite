@@ -100,7 +100,7 @@ class SearchResults extends BaseComponent
                 'title'             => 'offline.sitesearch::lang.searchResults.properties.no_results.title',
                 'description'       => 'offline.sitesearch::lang.searchResults.properties.no_results.description',
                 'type'              => 'string',
-                'default'           => 'Your search returned no results.',
+                'default'           => 'Tu búsqueda no devolvió ningún resultado.',
                 'showExternalParam' => false,
             ],
             'visitPageMessage'  => [

@@ -20,12 +20,12 @@ security = "all"
         <link href="{{ 'assets/compiled/css/style.css'|theme }}" rel="stylesheet">
         {% styles %}
     </head>
-    <body>
+    <body style="display:flex; flex-direction:column; min-height: 100vh;">
 
         {% partial "header" %}
 
         <!-- Content -->
-        <section id="layout-content" class="container clearfix">
+        <section id="layout-content" class="container clearfix" style="flex:1;">
             {% page %}
         </section>
 

@@ -1,23 +1,21 @@
 <header class="main-header">
-    <div class="container clearfix">
-        <h1 class="logo">Peliculas WinterCMS</h1>
+    <h1 class="logo ml-4">Peliculas WinterCMS</h1>
 
-        <nav class="main-nav">
-            <ul>
-                <li class="{{ this.page.id == 'homepage' ? 'active' }}"><a href="{{ 'homepage'|page }}">Inicio</a></li>
-                <li class="{% if this.page.id == 'movies' %} active {% endif %}"><a href="{{ 'movies'|page }}">Peliculas</a></li>
-                <li class="{{ this.page.id == 'actors' ? 'active' }}"><a href="{{ 'actors'|page }}">Actores</a></li>
-                <li class="{{ this.page.id == 'contact' ? 'active' }}"><a href="{{ 'contact'|page }}">Contacto</a></li>
+    <nav class="main-nav mr-4">
+        <ul>
+            <li class="{{ this.page.id == 'homepage' ? 'active' }}"><a href="{{ 'homepage'|page }}">Inicio</a></li>
+            <li class="{% if this.page.id == 'movies' %} active {% endif %}"><a href="{{ 'movies'|page }}">Peliculas</a></li>
+            <li class="{{ this.page.id == 'actors' ? 'active' }}"><a href="{{ 'actors'|page }}">Actores</a></li>
+            <li class="{{ this.page.id == 'contact' ? 'active' }}"><a href="{{ 'contact'|page }}">Contacto</a></li>
 
-                {% if user %}
-                <li class="{{ this.page.id == 'profile' ? 'active' }}"><a href="{{ 'profile'|page }}">Perfil</a></li>
-                <li><a data-request="onLogout" data-request-data="redirect: '/'" href>Salir</a></li>
-                {% else %}
-                <li class="{{ this.page.id == 'login' ? 'active' }}"><a href="{{ 'login'|page }}">Ingresar</a></li>
-                <li class="{{ this.page.id == 'register' ? 'active' }}"><a href="{{ 'register'|page }}">Registrarse</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
+            {% if user %}
+            <li class="{{ this.page.id == 'profile' ? 'active' }}"><a href="{{ 'profile'|page }}">Perfil</a></li>
+            <li><a data-request="onLogout" data-request-data="redirect: '/'" href>Salir</a></li>
+            {% else %}
+            <li class="{{ this.page.id == 'login' ? 'active' }}"><a href="{{ 'login'|page }}">Ingresar</a></li>
+            <li class="{{ this.page.id == 'register' ? 'active' }}"><a href="{{ 'register'|page }}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 
 </header>

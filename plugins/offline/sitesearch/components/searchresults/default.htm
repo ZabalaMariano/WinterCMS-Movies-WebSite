@@ -2,7 +2,11 @@
 
 {% for result in results %}
     {# Display all results #}
-    {% partial __SELF__ ~ '::searchresult.htm' result = result %}
+    {% if __SELF__.showProviderBadge %}
+        {% if result.provider == "Movie" %}
+            {% partial __SELF__ ~ '::searchresult.htm' result = result %}
+        {% endif %}
+    {% endif %}
 {% else %}
     {# No results found #}
     {% partial __SELF__ ~ '::no-results.htm' %}
